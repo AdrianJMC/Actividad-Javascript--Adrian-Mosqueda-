@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concatenar Cadenas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label, input, button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <form id="textForm">
+        <label for="cadena">Introduce una cadena de texto:</label>
+        <input type="text" id="cadena" name="cadena">
+        <button type="button" onclick="addCadena()">Agregar</button>
+        <button type="button" onclick="finalizar()">Finalizar</button>
+    </form>
+
+    <script>
+        let resultado = "";
+
+        function addCadena() {
+            let cadena = document.getElementById('cadena').value;
+            if (cadena) {
+                if (resultado === "") {
+                    resultado = cadena;
+                } else {
+                    resultado += "-" + cadena;
+                }
+                document.getElementById('cadena').value = "";
+            }
+        }
+
+        function finalizar() {
+            if (resultado !== "") {
+                alert("Cadenas concatenadas: " + resultado);
+            } else {
+                alert("No se introdujeron cadenas.");
+            }
+        }
+    </script>
+</body>
+</html>

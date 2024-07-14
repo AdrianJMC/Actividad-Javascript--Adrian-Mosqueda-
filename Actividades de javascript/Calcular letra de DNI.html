@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Letra del DNI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label, input, button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <form id="dniForm">
+        <label for="dni">Introduce tu número de DNI:</label>
+        <input type="number" id="dni" name="dni" required>
+        <button type="button" onclick="calcularLetra()">Calcular Letra</button>
+    </form>
+
+    <script>
+        const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+
+        function calcularLetra() {
+            let dni = parseInt(document.getElementById('dni').value, 10);
+            if (!isNaN(dni) && dni >= 0 && dni <= 99999999) {
+                let letra = letras[dni % 23];
+                alert("La letra de tu DNI es: " + letra);
+            } else {
+                alert("Número de DNI no válido. Debe estar entre 0 y 99999999.");
+            }
+        }
+    </script>
+</body>
+</html>
